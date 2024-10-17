@@ -1,0 +1,82 @@
+2024-10-17 02:08:50,281 - ERROR - (Account: ./sessions/+244924170925.session) Ошибка подключения сессии: The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest(InitConnectionRequest(GetConfigRequest)))
+2024-10-17 02:08:50,614 - INFO - (Account: +244924231978) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-17 02:12:15,287 - ERROR - (Account: +244924170925) Невалидная сессия: The authorization key (session file) was used under two different IP addresses simultaneously, and can no longer be used. Use the same session exclusively, or use different sessions (caused by InvokeWithLayerRequest(InitConnectionRequest(GetConfigRequest)))
+2024-10-17 02:12:18,434 - ERROR - (Account: +244924231978) Ошибка подключения сессии: name 'events' is not defined
+2024-10-17 02:15:50,724 - ERROR - (Account: +244924170925) Невалидная сессия: RPCError.__init__() missing 1 required positional argument: 'message'
+2024-10-17 02:15:54,111 - ERROR - (Account: +244924231978) Ошибка подключения сессии: name 'events' is not defined
+2024-10-17 02:16:21,430 - INFO - (Account: +244924231978) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-17 02:18:37,235 - INFO - (Account: +244924231978) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-17 02:18:43,379 - INFO - (Account: +244924231978) Ответил пользователю 7956975545 с текстом: Как дела?
+2024-10-17 02:18:58,316 - INFO - (Account: +244924231978) Ответил пользователю 7956975545 с текстом: Привет!
+2024-10-17 02:19:45,332 - INFO - (Account: +244924231978) Ответил пользователю 7956975545 с текстом: Привет!
+2024-10-17 02:19:47,710 - INFO - (Account: +244924231978) Ответил пользователю 7956975545 с текстом: Привет!
+2024-10-17 02:24:12,883 - INFO - (Account: +244924231978) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-17 02:24:27,536 - INFO - (Account: +244924231978) Ответил пользователю 7956975545 с текстом: Есть новости?
+2024-10-17 02:24:31,521 - INFO - (Account: +244924231978) Ответил пользователю 7956975545 с текстом: Привет!
+2024-10-18 00:18:09,407 - ERROR - (Account: 244923813165) Ошибка подключения сессии: 'list' object has no attribute 'split'
+2024-10-18 00:18:10,382 - ERROR - (Account: 31616267906) Ошибка подключения сессии: 'list' object has no attribute 'split'
+2024-10-18 00:18:10,965 - ERROR - (Account: 31612151822) Ошибка подключения сессии: 'list' object has no attribute 'split'
+2024-10-18 00:18:11,553 - ERROR - (Account: 31612837710) Ошибка подключения сессии: 'list' object has no attribute 'split'
+2024-10-18 00:18:12,086 - ERROR - (Account: 31616331324) Ошибка подключения сессии: 'list' object has no attribute 'split'
+2024-10-18 00:19:29,021 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:19:29,605 - INFO - (Account: 31616267906) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:19:30,433 - INFO - (Account: 31612151822) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:19:31,410 - INFO - (Account: 31612837710) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:19:31,526 - INFO - (Account: 31616331324) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:19:55,289 - INFO - (Account: 31616331324) Ответил пользователю 7956975545 с текстом: Как дела?
+2024-10-18 00:19:58,363 - INFO - (Account: 31616331324) Ответил пользователю 7956975545 с текстом: Как дела?
+2024-10-18 00:22:51,684 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:52,007 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:52,394 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:52,584 - INFO - (Account: 31616267906) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:52,689 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:53,016 - INFO - (Account: 31616267906) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:53,018 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:53,018 - INFO - (Account: 31612151822) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:53,385 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:53,387 - INFO - (Account: 31616267906) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:53,686 - INFO - (Account: 31612151822) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:53,698 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:53,789 - INFO - (Account: 31616267906) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:53,878 - INFO - (Account: 31612837710) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:54,005 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:54,017 - INFO - (Account: 31612151822) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:54,194 - INFO - (Account: 31616331324) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:54,281 - INFO - (Account: 31616267906) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:54,382 - INFO - (Account: 31612837710) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:54,385 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:54,396 - INFO - (Account: 31612151822) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:54,600 - INFO - (Account: 31616331324) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:54,696 - INFO - (Account: 31616267906) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:54,697 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:22:54,704 - INFO - (Account: 31612151822) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:23:53,559 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:23:53,559 - INFO - (Account: 244923813165) Ожидание 3600 секунд перед следующей рассылкой
+2024-10-18 00:23:54,361 - INFO - (Account: 31616267906) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:23:54,362 - INFO - (Account: 31616267906) Ожидание 3600 секунд перед следующей рассылкой
+2024-10-18 00:23:55,375 - INFO - (Account: 31612151822) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:23:55,375 - INFO - (Account: 31612151822) Ожидание 3600 секунд перед следующей рассылкой
+2024-10-18 00:23:55,887 - INFO - (Account: 31612837710) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:23:55,888 - INFO - (Account: 31612837710) Ожидание 3600 секунд перед следующей рассылкой
+2024-10-18 00:23:56,434 - INFO - (Account: 31616331324) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:23:56,434 - INFO - (Account: 31616331324) Ожидание 3600 секунд перед следующей рассылкой
+2024-10-18 00:24:08,334 - INFO - (Account: 31612837710) Ответил пользователю 7956975545 с текстом: Как дела?
+2024-10-18 00:25:37,232 - ERROR - (Account: 244923813165) Ошибка распределения сообщений: Cannot find any entity corresponding to "@asdcasdadsadsi0@asdcasdadsadsi0"
+2024-10-18 00:25:37,613 - ERROR - (Account: 31616267906) Ошибка распределения сообщений: Cannot find any entity corresponding to "@asdcasdadsadsi0@asdcasdadsadsi0"
+2024-10-18 00:25:37,840 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:25:37,840 - INFO - (Account: 244923813165) Ожидание 3600 секунд перед следующей рассылкой
+2024-10-18 00:25:38,138 - INFO - (Account: 31616267906) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:25:38,138 - INFO - (Account: 31616267906) Ожидание 3600 секунд перед следующей рассылкой
+2024-10-18 00:25:38,506 - ERROR - (Account: 31612151822) Ошибка распределения сообщений: Cannot find any entity corresponding to "@asdcasdadsadsi0@asdcasdadsadsi0"
+2024-10-18 00:27:01,024 - INFO - (Account: 244923813165) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:27:01,025 - INFO - (Account: 244923813165) Ожидание 3600 секунд перед следующей рассылкой
+2024-10-18 00:27:01,664 - INFO - (Account: 31616267906) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:27:01,664 - INFO - (Account: 31616267906) Ожидание 3600 секунд перед следующей рассылкой
+2024-10-18 00:27:01,964 - INFO - (Account: 31612151822) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:27:01,964 - INFO - (Account: 31612151822) Ожидание 3600 секунд перед следующей рассылкой
+2024-10-18 00:27:02,737 - INFO - (Account: 31612837710) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:27:02,738 - INFO - (Account: 31612837710) Ожидание 3600 секунд перед следующей рассылкой
+2024-10-18 00:27:03,373 - INFO - (Account: 31616331324) Сообщение отправлено в @asdcasdadsadsi0
+2024-10-18 00:27:03,374 - INFO - (Account: 31616331324) Ожидание 3600 секунд перед следующей рассылкой
+2024-10-18 00:27:51,177 - INFO - (Account: 244923813165) Ответил пользователю 7956975545 с текстом: Есть новости?
+2024-10-18 00:27:55,391 - INFO - (Account: 244923813165) Ответил пользователю 7956975545 с текстом: Как дела?
