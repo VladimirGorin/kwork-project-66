@@ -6,6 +6,7 @@ class TelegramSessionManager:
     def __init__(self):
         self.accounts = self.load_accounts()
         self.logger = self.setup_logger()
+        self.valid_accounts_count = 0
 
     def setup_logger(self):
         logger = logging.getLogger("TelegramBot")
