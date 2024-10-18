@@ -1,5 +1,5 @@
 from telethon import TelegramClient, errors, events, functions
-from config import SESSIONS_FOLDER, LOGGER_FILE, BAD_SESSIONS_FILE, MESSAGES, TARGET_GROUPS
+from config import SESSIONS_FOLDER, LOGGER_FILE, BAD_SESSIONS_FILE, MAILING_MESSAGES, AUTO_REPLY_MESSAGES, TARGET_GROUPS
 import os, json, random, asyncio, logging
 
 class TelegramSessionManager:
@@ -86,7 +86,7 @@ class TelegramSessionManager:
         try:
             if event.is_private:
                 sender = await event.get_sender()
-                reply_message = random.choice(MESSAGES)
+                reply_message = random.choice(AUTO_REPLY_MESSAGES)
                 await event.respond(reply_message)
                 self.logger.info(f"(Account: {phone}) Ответил пользователю {sender.id} с текстом: {reply_message}")
         except errors.FloodWaitError as e:
@@ -103,16 +103,17 @@ class TelegramSessionManager:
     async def distribute_messages(self, client, target_groups, phone, interval=3600):
         while True:
             for group in target_groups:
+                calc_sleep_time = interval // self.valid_accounts_count
                 await self.send_group_message(client, group, phone, interval)
+
+                self.logger.info(f"(Account: {phone}) Ожидание {calc_sleep_time} секунд перед следующей рассылкой")
+                await asyncio.sleep(calc_sleep_time)
 
     async def send_group_message(self, client, group, phone, interval):
         try:
-            message = random.choice(MESSAGES)
+            message = random.choice(MAILING_MESSAGES)
             await client(functions.channels.JoinChannelRequest(group))
             await self.send_message(client, group, message, phone)
-
-            self.logger.info(f"(Account: {phone}) Ожидание {interval} секунд перед следующей рассылкой")
-            await asyncio.sleep(interval)
 
         except errors.FloodWaitError as e:
             await self.handle_flood_wait(e, phone)
@@ -129,9 +130,6 @@ class TelegramSessionManager:
             await self.auto_reply(client, account['phone'])
             await self.distribute_messages(client, TARGET_GROUPS, account['phone'])
 
-            while True:
-                await asyncio.sleep(3600)
-
         except Exception as e:
             self.logger.error(f"(Account: {account['phone']}) Ошибка подключения сессии: {e}")
 
@@ -147,10 +145,12 @@ class TelegramSessionManager:
                     'password': account['proxy'].split(':')[3],
                 }
 
+
         return TelegramClient(account['session'], account['api_id'], account['api_hash'], proxy=proxy)
 
     async def run(self):
         tasks = [asyncio.create_task(self.start_account_session(account)) for account in self.accounts if await self.validate_session(account)]
+        self.valid_accounts_count = len(tasks)
         await asyncio.gather(*tasks)
 
 
