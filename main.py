@@ -168,11 +168,15 @@ class TelegramSessionManager:
         await asyncio.gather(*tasks)
 
         calc_sleep_time = INTERVAL // len(self.accounts)
-        for account in self.accounts:
-            client = account.get("client")
-            data = account.get("data")
-            await self.distribute_messages(client, TARGET_GROUPS, data['phone'])
-            await asyncio.sleep(calc_sleep_time)
+
+        while True:
+            for account in self.accounts:
+                client = account.get("client")
+                data = account.get("data")
+                await self.distribute_messages(client, TARGET_GROUPS, data['phone'])
+
+                self.logger.info(f"(Account: {data['phone']}) Спим ({calc_sleep_time}) перед след. отправкой")
+                await asyncio.sleep(calc_sleep_time)
 
         await asyncio.gather(*(account["client"].run_until_disconnected() for account in self.accounts))
 
