@@ -1,12 +1,17 @@
 from telethon import TelegramClient, errors, events, functions
-from config import SESSIONS_FOLDER, LOGGER_FILE, BAD_SESSIONS_FILE, MAILING_MESSAGES, AUTO_REPLY_MESSAGES, TARGET_GROUPS
-import os, json, random, asyncio, logging
+from config import SESSIONS_FOLDER, LOGGER_FILE, BAD_SESSIONS_FILE, MAILING_MESSAGES, AUTO_REPLY_MESSAGES, TARGET_GROUPS, INTERVAL
+
+import os
+import json
+import random
+import asyncio
+import logging
+
 
 class TelegramSessionManager:
     def __init__(self):
         self.accounts = self.load_accounts()
         self.logger = self.setup_logger()
-        self.valid_accounts_count = 0
 
     def setup_logger(self):
         logger = logging.getLogger("TelegramBot")
@@ -18,7 +23,8 @@ class TelegramSessionManager:
         file_handler.setLevel(logging.DEBUG)
         console_handler.setLevel(logging.INFO)
 
-        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+        formatter = logging.Formatter(
+            '%(asctime)s - %(levelname)s - %(message)s')
         file_handler.setFormatter(formatter)
         console_handler.setFormatter(formatter)
 
@@ -65,7 +71,6 @@ class TelegramSessionManager:
         self.logger.error(f"(Account: {account['phone']}) Невалидная сессия: {exception}")
         with open(BAD_SESSIONS_FILE, 'a') as f:
             f.write(f"{account['phone']}\n")
-
         self.remove_session_files(account)
 
     def remove_session_files(self, account):
@@ -102,15 +107,10 @@ class TelegramSessionManager:
         await asyncio.sleep(error.seconds)
 
     async def distribute_messages(self, client, target_groups, phone, interval=3600):
-        while True:
-            for group in target_groups:
-                calc_sleep_time = interval // self.valid_accounts_count
-                await self.send_group_message(client, group, phone, interval)
+        for group in target_groups:
+            await self.send_group_message(client, group, phone)
 
-                self.logger.info(f"(Account: {phone}) Ожидание {calc_sleep_time} секунд перед следующей рассылкой")
-                await asyncio.sleep(calc_sleep_time)
-
-    async def send_group_message(self, client, group, phone, interval):
+    async def send_group_message(self, client, group, phone):
         try:
             message = random.choice(MAILING_MESSAGES)
             await client(functions.channels.JoinChannelRequest(group))
@@ -127,10 +127,7 @@ class TelegramSessionManager:
         try:
             client = self.create_client(account)
             await client.start()
-
-            await self.auto_reply(client, account['phone'])
-            await self.distribute_messages(client, TARGET_GROUPS, account['phone'])
-
+            return client
         except Exception as e:
             self.logger.error(f"(Account: {account['phone']}) Ошибка подключения сессии: {e}")
 
@@ -146,13 +143,38 @@ class TelegramSessionManager:
                     'password': account['proxy'].split(':')[3],
                 }
 
-
         return TelegramClient(account['session'], account['api_id'], account['api_hash'], proxy=proxy)
 
+    async def auth_sessions(self):
+        accounts = []
+
+        for account in self.accounts:
+            if await self.validate_session(account):
+                client = await self.start_account_session(account)
+                accounts.append({"client": client, "data": account})
+
+        self.accounts = accounts
+
     async def run(self):
-        tasks = [asyncio.create_task(self.start_account_session(account)) for account in self.accounts if await self.validate_session(account)]
-        self.valid_accounts_count = len(tasks)
+        await self.auth_sessions()
+
+        tasks = []
+        for account in self.accounts:
+            client = account.get("client")
+            data = account.get("data")
+
+            tasks.append(asyncio.create_task(self.auto_reply(client, data['phone'])))
+
         await asyncio.gather(*tasks)
+
+        calc_sleep_time = INTERVAL // len(self.accounts)
+        for account in self.accounts:
+            client = account.get("client")
+            data = account.get("data")
+            await self.distribute_messages(client, TARGET_GROUPS, data['phone'])
+            await asyncio.sleep(calc_sleep_time)
+
+        await asyncio.gather(*(account["client"].run_until_disconnected() for account in self.accounts))
 
 
 if __name__ == "__main__":
